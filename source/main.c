@@ -9,14 +9,7 @@
 
 s32 main (void) {
 	// Initialize services
-	srvInit();
-	aptInit();
-	hidInit(NULL);
 	gfxInitDefault();
-	fsInit();
-	sdmcInit();
-	hbInit();
-	qtmInit();
 
     // Make sure the settings applied by gfxInitDefault come into effect
     gfxSwapBuffers();
@@ -46,13 +39,7 @@ s32 main (void) {
 
     free(payload);
 
-	hbExit();
-	sdmcExit();
-	fsExit();
 	gfxExit();
-	hidExit();
-	aptExit();
-	srvExit();
 	// Return to hbmenu
 	return 0;
 
@@ -63,12 +50,6 @@ error:
 
     if (payload) free(payload);
 
-	hbExit();
-	sdmcExit();
-	fsExit();
 	gfxExit();
-	hidExit();
-	aptExit();
-	srvExit();
     return 1;
 }
